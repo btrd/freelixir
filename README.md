@@ -1,6 +1,6 @@
 # Freelixir
 
-**TODO: Add description**
+Send SMS to yourself with Free Mobile API.
 
 ## Installation
 
