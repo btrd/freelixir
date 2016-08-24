@@ -4,9 +4,11 @@ defmodule Freelixir do
     url = "https://smsapi.free-mobile.fr/sendmsg"
     cond do
       String.valid?(user) && String.valid?(password) && String.valid?(message) ->
-        HTTPoison.get("#{url}?user=#{user}&password=#{password}&msg=#{message}") |> check_status
+        "#{url}?user=#{user}&password=#{password}&msg=#{message}"
+        |> HTTPoison.get
+        |> check_status
       true ->
-        {:error, "Freelixir only accept string parans"}
+        {:error, "Freelixir only accept string params"}
     end
   end
 
