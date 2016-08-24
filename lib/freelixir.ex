@@ -11,7 +11,7 @@ defmodule Freelixir do
       |> check_status
   end
 
-  def send_sms(user: user, password: password, message: message) do
+  def send_sms(user: _user, password: _password, message: _message) do
     {:error, %{message: "Freelixir only accept string params"}}
   end
 
