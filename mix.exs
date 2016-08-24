@@ -32,7 +32,8 @@ defmodule Freelixir.Mixfile do
     [
       {:httpoison, "~> 0.9.0"},
       {:ex_doc, ">= 0.0.0", only: :dev},
-      {:mock, "~> 0.1.1", only: :test}
+      {:mock, "~> 0.1.1", only: :test},
+      {:credo, "~> 0.4", only: [:dev, :test]}
     ]
   end
 
