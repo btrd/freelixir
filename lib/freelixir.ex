@@ -1,6 +1,8 @@
 defmodule Freelixir do
   @moduledoc """
   Module that give access to Free Mobile API with Elixir.
+  You first need to activate "Notifications par SMS" option on Free Mobile website.
+  https://mobile.free.fr/moncompte/index.php?page=options
   """
 
   @url "https://smsapi.free-mobile.fr/sendmsg"
