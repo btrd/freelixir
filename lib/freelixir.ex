@@ -12,7 +12,7 @@ defmodule Freelixir do
     end
   end
 
-  def check_status({:ok, res}) do
+  defp check_status({:ok, res}) do
     case res.status_code do
       200 ->
         {:ok, "SMS was sent successfully"}
@@ -27,7 +27,7 @@ defmodule Freelixir do
     end
   end
 
-  def check_status({_, res}) do
+  defp check_status({_, res}) do
     {:error, %{message: res.reason.message}}
   end
 
