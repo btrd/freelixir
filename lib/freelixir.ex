@@ -1,6 +1,25 @@
 defmodule Freelixir do
+  @moduledoc """
+  Module that give access to Free Mobile API with Elixir.
+  """
+
   @url "https://smsapi.free-mobile.fr/sendmsg"
 
+  @doc """
+  Send SMS
+
+  ## Parameters
+
+    - user:     Your login.
+    - password: Your identification string.
+    - message:   The content of the SMS.
+
+  ## Examples
+
+      $ Freelixir.send_sms(user: "_user_", password: "_password_", message: "Hello World !")
+      {:ok, "SMS was sent successfully"}
+
+  """
   def send_sms(user: user, password: password, message: message)
   when is_bitstring(user)
   when is_bitstring(password)
