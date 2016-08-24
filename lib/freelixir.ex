@@ -1,12 +1,12 @@
 defmodule Freelixir do
+  @url "https://smsapi.free-mobile.fr/sendmsg"
 
   def send_sms(user: user, password: password, message: message)
   when is_bitstring(user)
   when is_bitstring(password)
   when is_bitstring(message)
   do
-    url = "https://smsapi.free-mobile.fr/sendmsg"
-    "#{url}?user=#{user}&password=#{password}&msg=#{message}"
+    "#{@url}?user=#{user}&password=#{password}&msg=#{message}"
       |> HTTPoison.get
       |> check_status
   end
