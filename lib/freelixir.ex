@@ -1,15 +1,18 @@
 defmodule Freelixir do
 
-  def send_sms(user: user, password: password, message: message) do
+  def send_sms(user: user, password: password, message: message)
+  when is_bitstring(user)
+  when is_bitstring(password)
+  when is_bitstring(message)
+  do
     url = "https://smsapi.free-mobile.fr/sendmsg"
-    cond do
-      String.valid?(user) && String.valid?(password) && String.valid?(message) ->
-        "#{url}?user=#{user}&password=#{password}&msg=#{message}"
-        |> HTTPoison.get
-        |> check_status
-      true ->
-        {:error, %{message: "Freelixir only accept string params"}}
-    end
+    "#{url}?user=#{user}&password=#{password}&msg=#{message}"
+      |> HTTPoison.get
+      |> check_status
+  end
+
+  def send_sms(user: user, password: password, message: message) do
+    {:error, %{message: "Freelixir only accept string params"}}
   end
 
   defp check_status({:ok, res}) do
