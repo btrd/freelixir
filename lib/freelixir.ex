@@ -22,7 +22,7 @@ defmodule Freelixir do
         {:error, %{code: 402, message: "To many SMS has been sent, wait few minutes"}}
       403 ->
         {:error, %{code: 403, message: "You didn't activate the service « Notifications par SMS »"}}
-      _   ->
+      _code ->
         {:error, %{code: 500, message: "An error occurred with Free Mobile service"}}
     end
   end
