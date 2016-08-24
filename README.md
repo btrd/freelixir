@@ -4,7 +4,7 @@ Send SMS to yourself with Free Mobile API.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+[Available in Hex](https://hex.pm/packages/freelixir), the package can be installed as:
 
   1. Add `freelixir` to your list of dependencies in `mix.exs`:
 
