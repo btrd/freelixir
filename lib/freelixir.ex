@@ -8,7 +8,7 @@ defmodule Freelixir do
         |> HTTPoison.get
         |> check_status
       true ->
-        {:error, "Freelixir only accept string params"}
+        {:error, %{message: "Freelixir only accept string params"}}
     end
   end
 
@@ -17,18 +17,18 @@ defmodule Freelixir do
       200 ->
         {:ok, "SMS was sent successfully"}
       400 ->
-        {:error, "Parameters missing: user, password and msg are required"}
+        {:error, %{code: 400, message: "Parameters missing: user, password and msg are required"}}
       402 ->
-        {:error, "To many SMS has been sent, wait few minutes"}
+        {:error, %{code: 402, message: "To many SMS has been sent, wait few minutes"}}
       403 ->
-        {:error, "You didn't activate the service « Notifications par SMS »"}
+        {:error, %{code: 403, message: "You didn't activate the service « Notifications par SMS »"}}
       _   ->
-        {:error, "An error occurred with Free Mobile service"}
+        {:error, %{code: 500, message: "An error occurred with Free Mobile service"}}
     end
   end
 
   def check_status({_, res}) do
-    {:error, res}
+    {:error, %{message: res.reason.message}}
   end
 
 end

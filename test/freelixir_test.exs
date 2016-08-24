@@ -11,7 +11,8 @@ defmodule FreelixirTest do
   end
 
   test "check_status: reply error if params not ok" do
-    assert {:error, _} = Freelixir.check_status({:error, "Error"})
+    error = %{reason: %{message: "Don't work"}}
+    assert {:error, _} = Freelixir.check_status({:error, error})
   end
 
   test "check_status: reply error if params :ok but status unknown" do
